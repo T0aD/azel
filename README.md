@@ -59,15 +59,31 @@ a.fillForm()
 print a.data # this will return the prefilled form data
 ```
 
-``` python
-```
+Post a form (and publish cool stuff on gist)
 
 ``` python
-```
+a.get('http://gist.github.com/')
+a.fillForm()
 
-``` python
-```
+a.data['file_ext[gistfile1]'] = '.py'
+a.data['file_name[gistfile1]'] = __file__.strip('./')
+a.data['description'] = 'This was published by awesome azel!'
+a.data['file_contents[gistfile1]'] = content
 
+a.post('') # will post the first form
+```
+will produce the following output:
+
+``` sh
+-> GET http://gist.github.com/
+<- 301 Moved Permanently
+-> GET https://gist.github.com/
+<- 200 OK
+-> POST https://gist.github.com/gists
+<- 302 Found
+-> GET https://gist.github.com/2491246
+<- 200 OK
+```
 
 Annoy the hell of an asshole by trashing his blog:
 
