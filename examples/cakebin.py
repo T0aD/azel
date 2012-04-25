@@ -25,7 +25,8 @@ bin.get('http://bin.cakephp.org')
 bin.fillForm()
 
 bin.data['data[NewPaste][lang]'] = 'python'
-bin.data['data[NewPaste][nick]'] = os.getenv('USER')
+bin.data['data[NewPaste][nick]'] = os.getenv('USER') # yeah pwd.getpwuid(os.getuid()).pw_name
+# would have been more awesome
 bin.data['data[NewPaste][note]'] = 'Content of file ' + sys.argv[1]
 bin.data['data[NewPaste][body]'] = content
 bin.post('')
