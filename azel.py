@@ -7,7 +7,6 @@ from HTMLParser import HTMLParser
 from sgmllib import SGMLParser
 import re
 import os.path # using dirname() on URI actually ;)
-import io
 
 # Used to store Link properties the object way
 class Link:
