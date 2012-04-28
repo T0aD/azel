@@ -115,12 +115,3 @@ for link in final:
     blog.post(post)
 
 ```
-
-### Gr33tZ
-
-```
-Freenode, #python-fr
-<akear> d'ailleurs, la table latin1 est au début de l'utf-8 je crois de souvenir.
-<akear> et du latin1 est compatible utf-8, mais pas l'inverse (et surement pas totalement, je suis pas du tout sur là)
-```
-
