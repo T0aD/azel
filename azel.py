@@ -35,6 +35,11 @@ class LinkParser(HTMLParser):
     links = []
     currentLink = None
 
+    def init(self):
+        self.links = []
+        self.currentLink = None
+        self.in_a = False
+
     def handle_starttag(self, tag, attrs):
         if self.in_a == True:
             self.currentLink.value += self.get_starttag_text()
@@ -331,6 +336,7 @@ class Azel: # Hommage to Elza macro language
     def getLink(self, text):
         content = self.read() # read the content received
         p = LinkParser()
+        p.init() # reset links of lists
         p.feed(unicode(content, 'utf-8'))
         p.close()
         for link in p.links:
@@ -341,6 +347,7 @@ class Azel: # Hommage to Elza macro language
     # Parse all links using LinkParser:
     def parseLinks(self, content):
         p = LinkParser()
+        p.init()
         p.links = [] # reset list of links
         p.feed(unicode(content, 'utf-8'))
         p.close()
